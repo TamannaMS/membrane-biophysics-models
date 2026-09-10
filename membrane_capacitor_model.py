@@ -39,6 +39,7 @@ plt.xlabel('Transmembrane Potential (Volts)')
 plt.ylabel('Stored Energy (fJ)')
 plt.grid(True, alpha=0.3)
 plt.legend()
+plt.savefig("membrane_capacitor_model.png", dpi=150, bbox_inches="tight")
 plt.show()
 
 print(f"Calculated Membrane Capacitance: {C*1e12:.4f} pF")
