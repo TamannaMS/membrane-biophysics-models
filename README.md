@@ -22,7 +22,10 @@ Python simulations for GUV osmotic swelling, bilayer permeability, electroporati
 Models how GUVs swell over time when placed in a hypotonic solution, based on osmotic pressure and membrane water permeability.
 
 **Key equation:**
+
+```
 dR/dt = Lp · R₀ · Δπ / (3R)
+```
 
 where Δπ = RT · ΔC is the Van't Hoff osmotic pressure difference, Lp is the bilayer water permeability coefficient, and R₀ is the initial vesicle radius.
 
@@ -47,7 +50,11 @@ where Δπ = RT · ΔC is the Van't Hoff osmotic pressure difference, Lp is the 
 Simulates passive diffusion of a solute (e.g., fluorescent dye, small molecule drug) across a lipid bilayer membrane. Directly relevant to fluorescence leakage assays (calcein, ANTS/DPX) and drug encapsulation efficiency in liposomes.
 
 **Key equations:**
-J = -P · (C_in - C_out) (Fick's first law) dC_in/dt = -(A/V) · P · (C_in - C_out)
+
+```
+J = -P · (C_in - C_out)           (Fick's first law)
+dC_in/dt = -(A/V) · P · (C_in - C_out)
+```
 
 where P is the permeability coefficient, A is the membrane surface area, and V is the vesicle volume.
 
@@ -72,11 +79,17 @@ where P is the permeability coefficient, A is the membrane surface area, and V i
 Models how electropores open during an electric pulse and reseal after the field is removed, using the Weaver-Chizmadzhev two-phase kinetic model.
 
 **Key equations:**
-Phase 1 (pore opening, during pulse): dN/dt = α · exp(V_tm / V₀) - N / τ_open
 
-Phase 2 (resealing, after pulse): dN/dt = -N / τ_reseal
+```
+Phase 1 (pore opening, during pulse):
+    dN/dt = α · exp(V_tm / V₀) - N / τ_open
 
-Membrane conductance: G_pore(t) = N(t) · g_single
+Phase 2 (resealing, after pulse):
+    dN/dt = -N / τ_reseal
+
+Membrane conductance:
+    G_pore(t) = N(t) · g_single
+```
 
 where N is the number of pores, α is the pore creation rate, V_tm is the transmembrane voltage, V₀ is the characteristic voltage, τ_open and τ_reseal are the pore lifetime and resealing time constants, and g_single is the conductance of a single pore (~1 nS).
 
@@ -103,7 +116,12 @@ where N is the number of pores, α is the pore creation rate, V_tm is the transm
 Models the buildup of transmembrane voltage (TMV) when an external electric field is applied to a spherical GUV or cell, using the Schwan equation and an RC charging model.
 
 **Key equations:**
-Steady-state: V_tm = 1.5 · R · E · cos(θ) Time-dependent: V_tm(t) = 1.5 · R · E · cos(θ) · (1 - exp(-t / τ)) Charging time: τ = R · C_m / (2 · σ_i)
+
+```
+Steady-state:    V_tm = 1.5 · R · E · cos(θ)
+Time-dependent:  V_tm(t) = 1.5 · R · E · cos(θ) · (1 - exp(-t / τ))
+Charging time:   τ = R · C_m / (2 · σ_i)
+```
 
 where R is the vesicle radius, E is the external field, θ is the polar angle, C_m is the specific membrane capacitance, and σ_i is the intracellular conductivity.
 
@@ -129,7 +147,10 @@ where R is the vesicle radius, E is the external field, θ is the polar angle, C
 A simplified model showing how Gramicidin A concentration affects GUV radius over time, representing the concentration-dependent membrane remodeling observed in my experiments.
 
 **Model:**
+
+```
 R(t) = R₀ + k · C · t
+```
 
 where R₀ is the initial radius, C is the Gramicidin A concentration, and k is a rate constant capturing the peptide-induced membrane expansion.
 
@@ -148,7 +169,11 @@ where R₀ is the initial radius, C is the Gramicidin A concentration, and k is 
 Calculates the energy stored in a lipid bilayer treated as a parallel-plate capacitor, relevant to understanding the energetic threshold for electroporation.
 
 **Key equations:**
-C = ε₀ · εᵣ · A / d (parallel-plate capacitance) E = ½ · C · V² (stored energy)
+
+```
+C = ε₀ · εᵣ · A / d        (parallel-plate capacitance)
+E = ½ · C · V²              (stored energy)
+```
 
 **Parameters:**
 - Membrane thickness: 5 nm
@@ -168,7 +193,10 @@ C = ε₀ · εᵣ · A / d (parallel-plate capacitance) E = ½ · C · V² (sto
 - NumPy
 - SciPy
 - Matplotlib
+
+```
 pip install numpy scipy matplotlib
+```
 
 ## Author
 
@@ -177,6 +205,3 @@ M.S. Student (Biophysics), Department of Physics
 Bangladesh University of Engineering and Technology (BUET)
 
 GitHub: [TamannaMS](https://github.com/TamannaMS)
-
-
-
