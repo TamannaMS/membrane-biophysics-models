@@ -17,4 +17,5 @@ plt.ylabel("GUV Radius (µm)")
 plt.title("Effect of Gramicidin A on GUV Size")
 
 plt.legend()
+plt.savefig("guv_gramicidin_model.png", dpi=150, bbox_inches="tight")
 plt.show()
